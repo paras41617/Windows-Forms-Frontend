@@ -39,6 +39,9 @@ Partial Class ViewSubmissionsForm
         BtnSubmit = New Button()
         BtnCancel = New Button()
         TxtEmpty = New TextBox()
+        TxtSearch = New TextBox()
+        BtnSearch = New Button()
+        BtnClose = New Button()
         SuspendLayout()
         ' 
         ' TxtName
@@ -193,11 +196,40 @@ Partial Class ViewSubmissionsForm
         TxtEmpty.TextAlign = HorizontalAlignment.Center
         TxtEmpty.Visible = False
         ' 
+        ' TxtSearch
+        ' 
+        TxtSearch.Location = New Point(192, 12)
+        TxtSearch.Name = "TxtSearch"
+        TxtSearch.Size = New Size(264, 31)
+        TxtSearch.TabIndex = 17
+        ' 
+        ' BtnSearch
+        ' 
+        BtnSearch.Location = New Point(536, 12)
+        BtnSearch.Name = "BtnSearch"
+        BtnSearch.Size = New Size(112, 34)
+        BtnSearch.TabIndex = 18
+        BtnSearch.Text = "Search"
+        BtnSearch.UseVisualStyleBackColor = True
+        ' 
+        ' BtnClose
+        ' 
+        BtnClose.Location = New Point(681, 12)
+        BtnClose.Name = "BtnClose"
+        BtnClose.Size = New Size(112, 34)
+        BtnClose.TabIndex = 19
+        BtnClose.Text = "Close"
+        BtnClose.UseVisualStyleBackColor = True
+        BtnClose.Visible = False
+        ' 
         ' ViewSubmissionsForm
         ' 
         AutoScaleDimensions = New SizeF(10F, 25F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(883, 501)
+        Controls.Add(BtnClose)
+        Controls.Add(BtnSearch)
+        Controls.Add(TxtSearch)
         Controls.Add(TxtEmpty)
         Controls.Add(BtnCancel)
         Controls.Add(BtnSubmit)
@@ -239,4 +271,7 @@ Partial Class ViewSubmissionsForm
     Friend WithEvents BtnSubmit As Button
     Friend WithEvents BtnCancel As Button
     Friend WithEvents TxtEmpty As TextBox
+    Friend WithEvents TxtSearch As TextBox
+    Friend WithEvents BtnSearch As Button
+    Friend WithEvents BtnClose As Button
 End Class

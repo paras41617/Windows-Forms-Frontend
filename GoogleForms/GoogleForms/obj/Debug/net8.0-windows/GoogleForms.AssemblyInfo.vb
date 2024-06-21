@@ -16,7 +16,7 @@ Imports System.Reflection
 <Assembly: System.Reflection.AssemblyCompanyAttribute("GoogleForms"),  _
  Assembly: System.Reflection.AssemblyConfigurationAttribute("Debug"),  _
  Assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0"),  _
- Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5c30a5afbbfe7d22f82d395280ee7f8613e95219"),  _
+ Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c4d666bd3a198bfe3f84a80e11d727561b4e7e57"),  _
  Assembly: System.Reflection.AssemblyProductAttribute("GoogleForms"),  _
  Assembly: System.Reflection.AssemblyTitleAttribute("GoogleForms"),  _
  Assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0"),  _

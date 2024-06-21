@@ -167,8 +167,48 @@ Public Class ViewSubmissionsForm
     End Sub
 
     Private Async Sub BtnCancel_Click(sender As Object, e As EventArgs) Handles BtnCancel.Click
-        ' Reload the current submission to revert any changes
         MakeDefault()
+        Await LoadSubmission()
+    End Sub
+
+    Private Async Sub BtnSearch_Click(sender As Object, e As EventArgs) Handles BtnSearch.Click
+        Dim email = TxtSearch.Text.Trim()
+
+        If String.IsNullOrWhiteSpace(email) Then
+            MessageBox.Show("Please enter an email to search.")
+            Return
+        End If
+
+        Using client As New HttpClient()
+            Dim response = Await client.GetAsync($"http://localhost:3000/search?email={Uri.EscapeDataString(email)}")
+
+            If response.IsSuccessStatusCode Then
+                Try
+                    Dim json = Await response.Content.ReadAsStringAsync()
+                    Dim submissionsResponse = JsonConvert.DeserializeObject(Of List(Of SubmissionResponse))(json)
+
+                    If submissionsResponse IsNot Nothing AndAlso submissionsResponse.Count > 0 Then
+                        Dim submission = submissionsResponse(0).Submission
+                        TxtName.Text = submission.Name
+                        TxtEmail.Text = submission.Email
+                        TxtPhone.Text = submission.Phone
+                        TxtGitHub.Text = submission.GitHub_Link
+                        TxtStopWatch.Text = submission.Stopwatch_Time
+                        currentIndex = submissionsResponse(0).Index
+                    Else
+                        MessageBox.Show("No submissions found for the specified email.")
+                    End If
+                Catch ex As Exception
+                    MessageBox.Show($"Error deserializing JSON: {ex.Message}")
+                End Try
+            Else
+                MessageBox.Show("Failed to search submissions.")
+            End If
+        End Using
+    End Sub
+
+    Private Async Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
+
         Await LoadSubmission()
     End Sub
 
@@ -207,3 +247,28 @@ Public Class Submission
     <JsonProperty("Stopwatch_Time")>
     Public Property Stopwatch_Time As String
 End Class
+
+Public Class SubmissionResponse
+    <JsonProperty("submission")>
+    Public Property Submission As SubmissionSearch
+    <JsonProperty("index")>
+    Public Property Index As Integer
+End Class
+
+Public Class SubmissionSearch
+    <JsonProperty("Name")>
+    Public Property Name As String
+
+    <JsonProperty("Email")>
+    Public Property Email As String
+
+    <JsonProperty("Phone")>
+    Public Property Phone As String
+
+    <JsonProperty("GitHub_Link")>
+    Public Property GitHub_Link As String
+
+    <JsonProperty("Stopwatch_Time")>
+    Public Property Stopwatch_Time As String
+End Class
+

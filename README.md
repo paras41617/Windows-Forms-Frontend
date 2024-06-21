@@ -53,3 +53,7 @@ Shortcuts are also specified on the button itself.
 5. **Traversing:**
 
    Previous and Next buttons can be used to view all the submissions by traversing back and forth.
+
+6. **Search:**
+
+   A specific submission can be searched by using email.

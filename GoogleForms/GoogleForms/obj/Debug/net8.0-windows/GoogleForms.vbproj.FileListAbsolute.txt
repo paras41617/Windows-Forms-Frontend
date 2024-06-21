@@ -19,3 +19,4 @@ E:\slidely\desktop\GoogleForms\GoogleForms\obj\Debug\net8.0-windows\GoogleForms.
 E:\slidely\desktop\GoogleForms\GoogleForms\obj\Debug\net8.0-windows\GoogleForms.CreateSubmissionForm.resources
 E:\slidely\desktop\GoogleForms\GoogleForms\obj\Debug\net8.0-windows\GoogleFo.5DDCA1D4.Up2Date
 E:\slidely\desktop\GoogleForms\GoogleForms\obj\Debug\net8.0-windows\GoogleForms.ViewSubmissionsForm.resources
+E:\slidely\desktop\GoogleForms\GoogleForms\obj\Debug\net8.0-windows\GoogleForms.sourcelink.json
